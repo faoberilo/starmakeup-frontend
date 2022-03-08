@@ -54,7 +54,7 @@ export default function Home() {
 
   return (
     <div>
-      <img src={Logo} alt="Logo"/>
+      <img id="logo" src={Logo} alt="Logo"/>
       <h1>
         Login
       </h1>
@@ -76,7 +76,7 @@ export default function Home() {
             required
           />
         
-        <a href="http://www.gogle.com"> Esqueceu sua senha?</a>
+        <a id="esqueceu" href="http://www.gogle.com"> Esqueceu sua senha?</a>
         <div>
           <button type="submit">Entrar</button>
         </div>

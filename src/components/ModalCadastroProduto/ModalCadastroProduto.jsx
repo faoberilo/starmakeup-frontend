@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./styles.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
 
 
 
@@ -124,13 +126,13 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
 
   
   return (
-    
-    <div className="modal">
+    <Modal open={open} onClose={onClose} center showCloseIcon={false}>
+    <div >
       <span onClick={onClose}>✗</span>
       <h1>+ Cadastro de Produto </h1>
 
       <form onSubmit={handleSubmit}>          
-            <label>Código do Produto</label><input
+            <input
               type="text"
               id="codigo"
               name="codigo"
@@ -218,6 +220,7 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
          
         </form>
     </div>
+    </Modal>
   
   );
 };

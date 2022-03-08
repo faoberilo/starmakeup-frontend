@@ -1,14 +1,14 @@
 import * as React from 'react';
 import "./Admin.css";
-import ModalCadastroProduto from '../../components/ModalCadastroProduto/ModalCadastroProduto';
 import Message from '../../components/Message/Message';
+import NavBar from '../../components/Navbar/Navbar'
 import { useLocation } from 'react-router-dom';
 
 
 
 export default function Admin() {
 
-  const [isModalVisible, setisModalVisible] = React.useState(false);
+  
   const location = useLocation();
   let message = "";
   let type = "";
@@ -21,9 +21,7 @@ export default function Admin() {
 
   return (
     <div>
-      <h1>Admin</h1>
-      <button type="button" onClick={() => setisModalVisible(true)}> Cadastrar Produto </button>
-          {isModalVisible ? (<ModalCadastroProduto onClose={() => { setisModalVisible(false) }}/>): null}
+      <NavBar/>      
       <h1>Admin</h1> 
       {message && <Message msg={message} type={type} />}    
     </div>

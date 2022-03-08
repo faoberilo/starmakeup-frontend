@@ -11,6 +11,7 @@ form {
     
 }
 input{
+    width: 25%;
     background-color: rgb(237,154,190);
     border-style: none;
     border-radius: 1em;
@@ -25,12 +26,12 @@ input::placeholder{
 input:focus{
     outline: 0;
 }
-a{  
+#esqueceu{  
+    width: 25%;
     font-size: .9em;
     text-decoration: none;
     color:rgb(230,5,137);
     display: flex;
-    width: 100%;
     justify-content: right;
     margin-bottom: 1em;
 }
@@ -51,10 +52,17 @@ button[type="submit"]:hover {
     transform: scale(1.1);
     color:black;
 }
-img{
+#logo{
+    width: 20%;
     margin-top: 1em;
+    margin-bottom: 0.5em;
     border-radius: 1em;
 		-webkit-box-shadow: 5px 3px 1px rgba(237,154,190, 0.77);
 		-moz-box-shadow:    5px 3px 1px rgba(237,154,190, 0.77);
 		box-shadow:         5px 3px 1px rgba(237,154,190, 0.77);
+}
+h1{
+    margin-bottom: 0.5em;
+    width: 25%;
+    justify-content: center;
 }
