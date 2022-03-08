@@ -22,6 +22,10 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
     message = location.state.message;
   }
 
+  const [custo, setCusto] = React.useState("");
+  const [lucro, setLucro] = React.useState("");
+
+
   const handleSubmit = async (evento) => {
     evento.preventDefault();
     
@@ -126,7 +130,7 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
       <h1>+ Cadastro de Produto </h1>
 
       <form onSubmit={handleSubmit}>          
-            <input
+            <label>Código do Produto</label><input
               type="text"
               id="codigo"
               name="codigo"
@@ -154,8 +158,7 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
               <option value="">Tipo de Produto</option>
               <option value={1}>Unidade</option>
               <option value={2}>Pacote</option>
-              <option value={3}>Caixa</option>
-              
+              <option value={3}>Caixa</option>              
             </select>
 
             <input
@@ -181,12 +184,14 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
                 id="precoCusto"
                 name="precoCusto"
                 placeholder="Preço Custo"
+                onChange={(event) => setCusto(parseFloat(event.target.value))}
                 required/>
             <input
                 type="number"
                 id="porcentagemLucro"
                 name="porcentagemLucro"
                 placeholder="% Lucro"
+                onChange={(event) => setLucro(parseInt(event.target.value))}
                 required/>
             <input
                 type="number"
@@ -199,6 +204,7 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
                 id="valorVenda"
                 name="valorVenda"
                 placeholder="Preço de venda"
+                value={custo+custo*lucro/100}
                 required/>
             <input
                 type="text"
