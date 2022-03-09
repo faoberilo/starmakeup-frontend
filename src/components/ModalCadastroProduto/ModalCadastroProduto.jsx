@@ -14,8 +14,17 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
 
   useEffect(() => {
     AbreModal();
+    getFornecedores();
   }, []);
 
+  const[fornecedores,setFornecedores] = React.useState([]);
+
+  const getFornecedores = async ()=>{
+    await axios.get("fornecedor").then((response) => {
+      const fornecedores = response.data;
+      setFornecedores(fornecedores);
+    })
+  }
   
   const navigate = useNavigate();
   const location = useLocation();
@@ -173,7 +182,7 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
           <div class="col-md">
             <div class="form-floating">
             <select class="form-select mb-1" name="tipo" required>
-              <option selected></option>              
+              <option ></option>              
               <option value={1}>Unidade</option>
               <option value={2}>Pacote</option>
               <option value={3}>Caixa</option>              
@@ -182,14 +191,15 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
             </div>
           </div>
           <div class="col-md">
-            <div class="form-floating">
-              <input
-                class="form-control"
-                type="text"
-                name="fornecedorid"
-                required/>
-              <label for="fornecedorid">Código do Fornecedor*</label>
-            </div>
+          <div class="form-floating">
+        <select class="form-select mb-1" name="fornecedorid" required>
+          <option selected></option>
+            {fornecedores.map((fornecedor) => (
+            <option value={fornecedor.cnpj} >{fornecedor.nome}</option>
+            ))}              
+        </select>
+        <label for="tipo">Fornecedor*</label>
+      </div>
           </div>
         </div>
 
