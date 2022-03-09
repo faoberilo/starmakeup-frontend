@@ -126,95 +126,156 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
 
   
   return (
-    <Modal open={open} onClose={onClose} center showCloseIcon={false}>
+    <Modal open={open} onClose={onClose} showCloseIcon={false}>
     <div >
-      <span onClick={onClose}>✗</span>
-      <h1>+ Cadastro de Produto </h1>
+      
+      <div id="titulo"><h2>+</h2> <h2>Cadastro de Produto</h2> <h2 onClick={onClose}>✗</h2> </div>
 
-      <form onSubmit={handleSubmit}>          
+      <form onSubmit={handleSubmit} >
+
+        <div class="form-floating mb-1">
+        <input
+          class="form-control"          
+          type="text"
+          name="codigo"
+          required/>
+          <label for="codigo">Codigo do Produto*</label>
+        </div>
+
+        <div class="form-floating mb-1">
             <input
+              class="form-control" 
               type="text"
-              id="codigo"
-              name="codigo"
-              placeholder="Código do Produto"
-              required/>
-            <input
-              type="text"
-              id="imagem"
               name="imagem"
-              placeholder="Imagem do Produto"
-              required/>
+              />
+            <label for="imagem">Imagem do Produto</label>
+        </div>
+
+        <div class="form-floating mb-1">              
             <input
+              class="form-control" 
               type="text"
-              id="nome"
               name="nome"
-              placeholder="Nome do Produto"
               required/>
+        <label for="nome">Nome do Produto*</label>
+        </div>
+
+        <div class="form-floating mb-1">              
             <input
+              class="form-control" 
               type="text"
-              id="descricao"
               name="descricao"
-              placeholder="Descrição do Produto"
               required/>
-            <select name="tipo" required>
-              <option value="">Tipo de Produto</option>
+            <label for="descricao">Descrição do Produto*</label>
+        </div>
+
+        <div class="row g-1">
+          <div class="col-md">
+            <div class="form-floating">
+            <select class="form-select mb-1" name="tipo" required>
+              <option selected></option>              
               <option value={1}>Unidade</option>
               <option value={2}>Pacote</option>
               <option value={3}>Caixa</option>              
             </select>
+            <label for="tipo">Tipo de Produto*</label>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                type="text"
+                name="fornecedorid"
+                required/>
+              <label for="fornecedorid">Código do Fornecedor*</label>
+            </div>
+          </div>
+        </div>
 
+        <div class="row g-1">
+          <div class="col-md">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                type="date"
+                name="dataValidade"              
+                required/>
+              <label for="dataValidade">Data de Validade*</label>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="form-floating mb-1">
             <input
+              class="form-control"
+              type="number"
+              name="quantidade"
+              required/>
+            <label for="quantidade">Quantidade*</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-1">
+          <div class="col-md">
+            <div class="form-floating mb-1">
+            <input
+              class="form-control"
               type="text"
-              id="fornecedorid"
-              name="fornecedorid"
-              placeholder="Código do Fornecedor"
+              name="precoCusto"
+              onChange={(event) => setCusto(parseFloat(event.target.value))}
               required/>
-            <input
-              type="date"
-              id="date"
-              name="dataValidade"
-              placeholder="Validade do Produto: "
-              required/>
-            <input
-                type="number"
-                id="quantidade"
-                name="quantidade"
-                placeholder="Quantidade"
-                required/>
-            <input
+            <label for='precoCusto'>Preço de Custo*</label>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="form-floating mb-1">
+                <input
+                  class="form-control"
+                  type="number"
+                  name="porcentagemLucro"
+                  onChange={(event) => setLucro(parseInt(event.target.value))}
+                  required/>
+                  <label for="porcentagemLucro">% de Lucro*</label>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="form-floating mb-1">
+              <input
+                class="form-control"
                 type="text"
-                id="precoCusto"
-                name="precoCusto"
-                placeholder="Preço Custo"
-                onChange={(event) => setCusto(parseFloat(event.target.value))}
-                required/>
-            <input
-                type="number"
-                id="porcentagemLucro"
-                name="porcentagemLucro"
-                placeholder="% Lucro"
-                onChange={(event) => setLucro(parseInt(event.target.value))}
-                required/>
-            <input
-                type="number"
-                id="promocaodesconto"
-                name="promocaodesconto"
-                placeholder="% Promoção"
-                required/>
-            <input
-                type="text"
-                id="valorVenda"
                 name="valorVenda"
-                placeholder="Preço de venda"
                 value={custo+custo*lucro/100}
                 required/>
-            <input
-                type="text"
-                id="valorAtacado"
-                name="valorAtacado"
-                placeholder="Preço de Atacado"
+              <label for="valorVenda">Preço de Venda*</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-1">
+          <div class="col-md">
+            <div class="form-floating mb-1">
+              <input
+                class="form-control"
+                type="number"
+                name="promocaodesconto"
                 required/>
-          <div>
+              <label for="promocaodesconto">% de Promoção*</label>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="form-floating mb-1">
+              <input
+                class="form-control"
+                type="text"
+                name="valorAtacado"
+                required/>
+                <label for="valorAtacado">Preço de Atacado*</label>            
+            </div>
+          </div>       
+        </div>
+
+          <div id="button">
             <button type="submit">Enviar</button>
           </div>
          

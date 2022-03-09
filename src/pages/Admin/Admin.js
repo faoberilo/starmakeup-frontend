@@ -22,7 +22,7 @@ export default function Admin() {
   return (
     <div>
       <NavBar/>      
-      <h1>Admin</h1> 
+      <h1>Admin</h1>
       {message && <Message msg={message} type={type} />}    
     </div>
   );

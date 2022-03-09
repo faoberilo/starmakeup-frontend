@@ -1,4 +1,4 @@
-div {
+#divlogin {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,11 +7,10 @@ div {
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    
+    align-items: center;       
 }
-input{
-    width: 25%;
+.login{
+    width: 20%;
     background-color: rgb(237,154,190);
     border-style: none;
     border-radius: 1em;
@@ -27,7 +26,7 @@ input:focus{
     outline: 0;
 }
 #esqueceu{  
-    width: 25%;
+    width: 20%;
     font-size: .9em;
     text-decoration: none;
     color:rgb(230,5,137);
@@ -42,9 +41,7 @@ button[type="submit"]{
     border-radius: 1em;
     background-color:rgb(230,5,137);
     width: fit-content;
-    margin-top:0.5em;
-    margin-bottom:0.5em;
-    
+    margin-bottom:0.5em;    
 }
 button[type="submit"]:hover {
     cursor: pointer;
@@ -62,7 +59,7 @@ button[type="submit"]:hover {
 		box-shadow:         5px 3px 1px rgba(237,154,190, 0.77);
 }
 h1{
-    margin-bottom: 0.5em;
-    width: 25%;
+    display:flex;
     justify-content: center;
+    font-weight: bolder;
 }

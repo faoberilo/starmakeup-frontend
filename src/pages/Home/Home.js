@@ -53,14 +53,15 @@ export default function Home() {
 
 
   return (
-    <div>
+    <div id="divlogin">
       <img id="logo" src={Logo} alt="Logo"/>
       <h1>
         Login
       </h1>
-      <form onSubmit={handleSubmit}>
+      <form id='login' onSubmit={handleSubmit}>
      
           <input
+            className='login'
             id="email"  
             type="email"
             onChange={(event) => setEmail(event.target.value)}
@@ -69,6 +70,7 @@ export default function Home() {
           />
           
           <input
+            className='login'
             id="senha"            
             type="password"
             onChange={(event) => setSenha(event.target.value)}
@@ -77,7 +79,7 @@ export default function Home() {
           />
         
         <a id="esqueceu" href="http://www.gogle.com"> Esqueceu sua senha?</a>
-        <div>
+        <div id="divlogin">
           <button type="submit">Entrar</button>
         </div>
       </form>
