@@ -5,10 +5,6 @@ import NavBar from '../../components/Navbar/Navbar'
 import { useLocation } from 'react-router-dom';
 import Logo from '../Login/logo.png';
 
-   
-
-
-
 export default function Home() {
 
   const location = useLocation();

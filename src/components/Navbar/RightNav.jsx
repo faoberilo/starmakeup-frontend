@@ -32,13 +32,13 @@ const RightNav = ({ open }) => {
         <Ul open={open}>
           <button type="button" onClick={() => setisModalVisible(true)}> Cadastrar Produto </button>
              {isModalVisible ? (<ModalCadastroProduto onClose={() => { setisModalVisible(false) }}/>): null}
-          <button type="button" onClick={() => setisModalVisible1(true)}> Cadastrar Fornecedor </button>
-             {isModalVisible1 ? (<ModalCadastroFornecedor onClose={() => { setisModalVisible1(false) }}/>): null}
-        
           
-          <button type="button" onClick={handleClick}> 
-              <BiLogOutCircle/>Logout            
-          </button>            
+          <button type="button" ><a href="/produtos"> Pesquisar Produtos</a></button> 
+         
+         <button type="button" onClick={() => setisModalVisible1(true)}> Cadastrar Fornecedor </button>
+             {isModalVisible1 ? (<ModalCadastroFornecedor onClose={() => { setisModalVisible1(false) }}/>): null}
+                  
+          <button type="button" onClick={handleClick}><BiLogOutCircle/>Logout</button>            
                 
         </Ul>
       )};

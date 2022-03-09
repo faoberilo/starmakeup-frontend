@@ -1,0 +1,12 @@
+th{
+    width: fit-content;
+}
+
+td{
+    max-width: 6em;
+    width: fit-content;
+}
+
+img{
+    width: 3em;
+}

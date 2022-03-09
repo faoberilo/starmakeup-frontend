@@ -66,6 +66,10 @@ export const Ul = styled.ul`
       transition: all 200ms ease;
       transform: scale(1.05);
     }
+    a{
+      color:black;
+      text-decoration:none;
+    }
   }
 
   @media (max-width: 768px) {

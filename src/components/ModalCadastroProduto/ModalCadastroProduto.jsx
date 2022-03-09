@@ -111,7 +111,7 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
         .post("/tipo-produto", tipoProduto)
         .then((response) => {
           onClose();
-          navigate("/admin", {
+          navigate("/home", {
             state: {
               message: "Produto cadastrado com sucesso!!!",
               type: "success",

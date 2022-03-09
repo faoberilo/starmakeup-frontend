@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from 'axios';
 import Home from "./pages/Home/Home";
 import Login from './pages/Login/Login';
+import Produtos from './pages/Produtos/Produtos';
 
 axios.defaults.baseURL = "http://localhost:3001/";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -18,7 +19,8 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Home />} />        
+        <Route path="/home" element={<Home />} />
+        <Route path="/produtos" element={<Produtos />} />              
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
