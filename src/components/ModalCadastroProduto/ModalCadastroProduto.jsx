@@ -198,7 +198,7 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
             <option value={fornecedor.cnpj} >{fornecedor.nome}</option>
             ))}              
         </select>
-        <label for="tipo">Fornecedor*</label>
+        <label for="fornecedorid">Fornecedor*</label>
       </div>
           </div>
         </div>

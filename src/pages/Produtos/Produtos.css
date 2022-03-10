@@ -10,3 +10,20 @@ td{
 img{
     width: 3em;
 }
+
+#search{
+    margin-top:.5rem;
+    color: rgb(230,5,137);
+    font-size: 1rem;
+    outline: 0;
+    border-width: 0 0 0.2rem;
+    border-color: rgb(0,0,0);
+    padding-left: 1rem;
+    background-color: transparent;
+    width: fit-content;
+    font-weight: bolder;
+    
+}
+#search::placeholder {
+color: rgb(230,5,137);
+}

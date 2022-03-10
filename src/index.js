@@ -7,7 +7,9 @@ import Home from "./pages/Home/Home";
 import Login from './pages/Login/Login';
 import Produtos from './pages/Produtos/Produtos';
 
-axios.defaults.baseURL = "http://localhost:3001/";
+//axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://starmakeupbackend.herokuapp.com/";
+
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.interceptors.request.use((config) => {
   config.headers.authorization = `Bearer ${localStorage.getItem("token")}`;
