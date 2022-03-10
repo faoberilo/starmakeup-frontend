@@ -32,9 +32,10 @@ export default function Produtos() {
        );     
 
   return (
-    <div>
+    <div id="tabela">
       <NavBar/>
       <p>{total}</p>
+      <h2>Produtos</h2>
       <input
         id='search'
         type="search"
@@ -42,6 +43,7 @@ export default function Produtos() {
         value={busca}
         onChange={(ev) => setBusca(ev.target.value)}
       />
+      
       <table class="table table-striped">
             <thead>
                 <tr>

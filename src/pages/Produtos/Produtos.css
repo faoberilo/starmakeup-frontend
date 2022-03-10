@@ -1,9 +1,17 @@
+#tabela{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
 th{
     width: fit-content;
 }
 
 td{
-    max-width: 6em;
+    width: fit-content;
+}
+
+.table{
     width: fit-content;
 }
 
