@@ -22,7 +22,7 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
   const getFornecedores = async ()=>{
     await axios.get("fornecedor").then((response) => {
       const fornecedores = response.data;
-      setFornecedores(fornecedores);
+      setFornecedores(fornecedores[0]);
     })
   }
   

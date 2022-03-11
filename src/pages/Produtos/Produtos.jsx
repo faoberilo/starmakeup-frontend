@@ -12,7 +12,6 @@ export default function Produtos() {
     
       const getDados = async ()=>{
         await axios.get("produto").then((response) => {
-          console.log(response)
           const produtos = response.data;
           for (let i = 0; i < produtos[0].length; i++) {
             produtos[0][i].gerenciar = <GroupButton id={produtos[0][i].id} />;
@@ -61,7 +60,7 @@ export default function Produtos() {
                 </tr>
             </thead>
             <tbody>
-            {produtosFiltrados.map((produto,index) => (
+            {produtosFiltrados.map((produto) => (
                     <tr>
                         <th scope="row">{produto.codigo}</th>
                         <td><img src={produto.imagem} alt="imagem do "></img>{produto.nome} </td>

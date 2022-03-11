@@ -72,13 +72,11 @@ const GroupButton = (props) => {
           <button id="groupButton" data-bs-toggle="tooltip" data-bs-placement="top" title="Mais detalhes do produto" type="button" onClick={() => setisModalDetalhesVisible(true)}>
           <BiPlusCircle />
           </button>
-        {isModalDetalhesVisible ? (<ModalDetalhesProduto onClose={() => {setisModalDetalhesVisible(false);}}/>) : null}
-        {localStorage.setItem("idEditar", props.id)}       
+        {isModalDetalhesVisible ? (<ModalDetalhesProduto id={props.id} onClose={() => {setisModalDetalhesVisible(false);}}/>) : null}
           <button id="groupButton" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar produto" type="button" onClick={() => setisModalVisible(true)}>
             <BiEdit />
           </button>
-        {isModalVisible ? (<ModalEditarProduto onClose={() => {setisModalVisible(false);}}/>) : null}
-        {localStorage.setItem("idEditar", props.id)}
+        {isModalVisible ? (<ModalEditarProduto id={props.id} onClose={() => {setisModalVisible(false);}}/>) : null}
           <button id="groupButton" data-bs-toggle="tooltip" data-bs-placement="top" title="Excluir produto" onClick={handleOpen}>
             <BiTrash />
           </button>

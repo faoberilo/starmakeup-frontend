@@ -24,9 +24,6 @@ const ModalCadastroFornecedor = ({ onClose = () => {}, Children }) => {
     message = location.state.message;
   }
 
-
-
-
   const handleSubmit = async (evento) => {
     evento.preventDefault();
     
