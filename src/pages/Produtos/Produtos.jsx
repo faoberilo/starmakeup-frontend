@@ -2,6 +2,8 @@ import * as React from 'react';
 import "./Produtos.css";
 import NavBar from '../../components/Navbar/Navbar'
 import axios from 'axios';
+import GroupButton from '../../components/GroupButton/GroupButton';
+
 
 export default function Produtos() {    
       const[produtos,setProdutos] = React.useState([]);
@@ -12,6 +14,9 @@ export default function Produtos() {
         await axios.get("produto").then((response) => {
           console.log(response)
           const produtos = response.data;
+          for (let i = 0; i < produtos[0].length; i++) {
+            produtos[0][i].gerenciar = <GroupButton id={produtos[0][i].id} />;
+          }
           setProdutos(produtos[0]);
           setTotal(produtos[1]);
         })
@@ -52,6 +57,7 @@ export default function Produtos() {
                   <th scope="col">Descrição</th>
                   <th scope="col">Vencimento</th>
                   <th scope="col">Estoque</th>
+                  <th scope="col">Gerenciar</th>
                 </tr>
             </thead>
             <tbody>
@@ -62,6 +68,7 @@ export default function Produtos() {
                         <td>{produto.descricao}</td>
                         <td>{produto.diaValidade}/{produto.mesValidade}/{produto.anoValidade}</td>
                         <td>{produto.quantidade}</td>
+                        <td>{produto.gerenciar}</td>                        
                     </tr>       
                 ))}
                     

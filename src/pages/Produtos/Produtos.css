@@ -4,10 +4,13 @@
     align-items: center;
 }
 th{
+    
+    vertical-align: middle;
     width: fit-content;
 }
 
 td{
+    vertical-align: middle;
     width: fit-content;
 }
 
