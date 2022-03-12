@@ -18,17 +18,17 @@ const ModalEditarProduto = ({ onClose = () => {}, Children, id }) => {
   useEffect(() => {
     AbreModal();
     getFornecedores();
-    getDados();
+    getDados();    
   }, []);
 
   const getDados = async ()=> {
         await axios.get(`produto/${id}`).then((response) => {
         const produto = response.data;
+        produto[0].dataValidade=`${produto[0].anoValidade}-${produto[0].mesValidade}-${produto[0].diaValidade}`;
         setProduto(produto[0]);
         setPreco(produto[1]);
         setTipo(produto[2]);
         setFornecedor(produto[3]);
-        console.log(produto)          
         })
       }
       
@@ -47,10 +47,7 @@ const ModalEditarProduto = ({ onClose = () => {}, Children, id }) => {
   if (location.state) {
     message = location.state.message;
   }
-
-  const [custo, setCusto] = React.useState("");
-  const [lucro, setLucro] = React.useState("");
-
+ 
   const handleFieldsChange = (evento) => {
     const campos = { ...produto };
     campos[evento.target.name] = evento.target.value;
@@ -74,6 +71,7 @@ const ModalEditarProduto = ({ onClose = () => {}, Children, id }) => {
     setFornecedor(campos);
   };
 
+
   const handleSubmit = async (evento) => {
     evento.preventDefault();
     
@@ -92,7 +90,7 @@ const ModalEditarProduto = ({ onClose = () => {}, Children, id }) => {
     const promocaodesconto= parseInt(evento.target.promocaodesconto.value);
     const valorVenda= parseFloat(evento.target.valorVenda.value);
     const valorAtacado= parseFloat(evento.target.valorAtacado.value);
-    const fornecedorid= parseInt(evento.target.fornecedorid.value);
+    const fornecedorid= evento.target.fornecedorid.value;
 
     const produto = {
       codigo,
@@ -264,7 +262,9 @@ const ModalEditarProduto = ({ onClose = () => {}, Children, id }) => {
               <input
                 class="form-control"
                 type="date"
-                name="dataValidade"              
+                name="dataValidade"
+                onChange={handleFieldsChange}
+                value={produto.dataValidade}           
                 required/>
               <label for="dataValidade">Data de Validade*</label>
             </div>
@@ -275,6 +275,8 @@ const ModalEditarProduto = ({ onClose = () => {}, Children, id }) => {
               class="form-control"
               type="number"
               name="quantidade"
+              onChange={handleFieldsChange}
+              value={produto.quantidade}
               required/>
             <label for="quantidade">Quantidade*</label>
             </div>
@@ -288,7 +290,8 @@ const ModalEditarProduto = ({ onClose = () => {}, Children, id }) => {
               class="form-control"
               type="text"
               name="precoCusto"
-              onChange={(event) => setCusto(parseFloat(event.target.value))}
+              onChange={handleFieldsChange1}
+              value={preco.precoCusto}
               required/>
             <label for='precoCusto'>Preço de Custo*</label>
             </div>
@@ -299,7 +302,8 @@ const ModalEditarProduto = ({ onClose = () => {}, Children, id }) => {
                   class="form-control"
                   type="number"
                   name="porcentagemLucro"
-                  onChange={(event) => setLucro(parseInt(event.target.value))}
+                  onChange={handleFieldsChange1}                  
+                  value={preco.porcentagemLucro}
                   required/>
                   <label for="porcentagemLucro">% de Lucro*</label>
             </div>
@@ -310,7 +314,8 @@ const ModalEditarProduto = ({ onClose = () => {}, Children, id }) => {
                 class="form-control"
                 type="text"
                 name="valorVenda"
-                value={custo+custo*lucro/100}
+                onChange={handleFieldsChange1}
+                value={preco.valorVenda}
                 required/>
               <label for="valorVenda">Preço de Venda*</label>
             </div>
@@ -324,6 +329,8 @@ const ModalEditarProduto = ({ onClose = () => {}, Children, id }) => {
                 class="form-control"
                 type="number"
                 name="promocaodesconto"
+                onChange={handleFieldsChange1}
+                value={preco.promocaodesconto}
                 required/>
               <label for="promocaodesconto">% de Promoção*</label>
             </div>
@@ -334,6 +341,8 @@ const ModalEditarProduto = ({ onClose = () => {}, Children, id }) => {
                 class="form-control"
                 type="text"
                 name="valorAtacado"
+                onChange={handleFieldsChange1}
+                value={preco.valorAtacado}
                 required/>
                 <label for="valorAtacado">Preço de Atacado*</label>            
             </div>

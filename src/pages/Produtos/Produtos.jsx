@@ -51,9 +51,10 @@ export default function Produtos() {
       <table class="table table-striped">
             <thead>
                 <tr>
+                  <th scope="col">Id</th>
                   <th scope="col">Código</th>
                   <th scope="col">Nome</th>
-                  <th scope="col">Descrição</th>
+                  <th scope="col">Imagem</th>
                   <th scope="col">Vencimento</th>
                   <th scope="col">Estoque</th>
                   <th scope="col">Gerenciar</th>
@@ -62,9 +63,10 @@ export default function Produtos() {
             <tbody>
             {produtosFiltrados.map((produto) => (
                     <tr>
-                        <th scope="row">{produto.codigo}</th>
-                        <td><img src={produto.imagem} alt="imagem do "></img>{produto.nome} </td>
-                        <td>{produto.descricao}</td>
+                        <th scope="row">{produto.id}</th>
+                        <td>{produto.codigo}</td> 
+                        <td>{produto.nome} </td>
+                        <td id="td-img"><img id="img-tabela"src={produto.imagem} alt="imagem"></img></td>
                         <td>{produto.diaValidade}/{produto.mesValidade}/{produto.anoValidade}</td>
                         <td>{produto.quantidade}</td>
                         <td>{produto.gerenciar}</td>                        

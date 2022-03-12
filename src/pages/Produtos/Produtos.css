@@ -13,14 +13,18 @@ td{
     vertical-align: middle;
     width: fit-content;
 }
+#td-img{
+    text-align: center;
+}
 
 .table{
     width: fit-content;
 }
 
-img{
-    width: 3em;
+#img-tabela{
+    width: 3em;   
 }
+
 
 #search{
     margin-top:.5rem;

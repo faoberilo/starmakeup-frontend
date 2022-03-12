@@ -1,0 +1,38 @@
+#titulo{
+  width: 100%;
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h2{
+  font-weight: bolder;
+  width: fit-content;
+  color:rgb(230,5,137);
+  cursor: pointer;
+}
+
+#button{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+label{
+  font-weight: bolder;
+  color:black;  
+}
+.form-control, .form-select{
+  border-radius: 1em;
+  border-width: .2em;
+  border-color: black;
+  font-weight: bolder;
+}
+.form-control:focus, .form-select:focus{
+  box-shadow: none;
+  border-color: black;
+  font-weight: bolder;
+}
+
+
+
+  

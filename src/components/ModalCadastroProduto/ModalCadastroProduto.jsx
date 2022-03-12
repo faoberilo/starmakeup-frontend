@@ -55,7 +55,7 @@ const ModalCadastroProduto = ({ onClose = () => {}, Children }) => {
     const promocaodesconto= parseInt(evento.target.promocaodesconto.value);
     const valorVenda= parseFloat(evento.target.valorVenda.value);
     const valorAtacado= parseFloat(evento.target.valorAtacado.value);
-    const fornecedorid= parseInt(evento.target.fornecedorid.value);
+    const fornecedorid= evento.target.fornecedorid.value;
 
     const produto = {
       codigo,

@@ -38,16 +38,26 @@ const GroupButton = (props) => {
   }, []);
 
   const deletaProduto = () => {
+    
     axios.delete(`/produtosprecos/${props.id}`);
+
+    setTimeout(() => {
+      axios.delete(`/fornecedor-produto/${props.id}`);
+    }, 500);
+    setTimeout(() => {
+      axios.delete(`/tipo-produto/${props.id}`);
+    }, 1000);
+
     setTimeout(() => {
       axios.delete(`/produto/${props.id}`).then((response) => {
-        navigate("/admin", {
+        navigate("/home", {
           state: { message: "Produto deletado com sucesso!", type: "success" },
         });
         document.location.reload(true);
         handleClose();
       });
-    }, 1000);
+    }, 1500);
+  
     const log = {};
     log.idUser= localStorage.getItem("idUser");
     log.idProduto = produto.produto1;
