@@ -11,9 +11,19 @@ const ModalVenda = ({ onClose = () => {}, Children }) => {
   
   const [open, setOpen] = useState(false);
   const AbreModal = () => setOpen(true);
+  const[produtos,setProdutos] = React.useState([]);
+
+  const getDados = async ()=>{
+    await axios.get("produto").then((response) => {
+      const produtos = response.data;
+      setProdutos(produtos[0]);
+    })
+  }      
+
 
   useEffect(() => {
     AbreModal();
+    getDados();
   }, []);
 
   
@@ -60,13 +70,6 @@ const ModalVenda = ({ onClose = () => {}, Children }) => {
           alert(response.message);
         });
     
-        const log = {};
-        log.idUser= localStorage.getItem("idUser");
-        log.idProduto = evento.target.codigo.value;;
-        log.campoAlterado = "Cadastro de fornecedor";
-        log.valorOriginal = "";
-        log.valorAlterado = "";
-        axios.post(`/log`, log);
   };
   
   return (
@@ -77,14 +80,18 @@ const ModalVenda = ({ onClose = () => {}, Children }) => {
 
       <form onSubmit={handleSubmit} >
 
-       <div class="form-floating mb-3">              
-            <input
-              class="form-control" 
-              type="text"
-              name="produto"
-              required/>
-        <label>Produto*</label>
-        </div>
+        <div class="col-md">
+          <div class="form-floating">
+        <select class="form-select mb-3" name="produto" required>
+          <option selected></option>
+            {produtos.map((produto) => (
+            <option value={produto.codigo} >{produto.nome}</option>
+            ))}              
+        </select>
+        <label for="produto<">Produto*</label>
+      </div>
+          </div>
+      
 
         <div class="form-floating mb-3">              
             <input
