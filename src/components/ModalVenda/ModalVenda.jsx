@@ -39,18 +39,24 @@ const ModalVenda = ({ onClose = () => {}, Children }) => {
     
     const produto= evento.target.produto.value;
     const quantidade= parseInt(evento.target.quantidade.value);
-    const valorExtra= parseFloat(evento.target.valorExtra.value);
+    const valorExtra= parseInt(evento.target.valorExtra.value);
     const desconto= parseInt(evento.target.desconto.value);
-    const pagamento= evento.target.pagamento.value;
-    const valorFinal= parseFloat(evento.target.valorFinal.value);     
+    const valorDebito= parseInt(evento.target.valorDebito.value);
+    const valorCredito= parseInt(evento.target.valorDebito.value);
+    const valorFinal= parseInt(evento.target.valorFinal.value);
+    const valorDinheiro= parseInt(evento.target.valorDinheiro.value);
+    const caixa= parseInt(evento.target.caixa.value);       
       
     const venda = {
       produto,
       quantidade,
       valorExtra,
       desconto,
-      pagamento,
-      valorFinal
+      valorDebito,
+      valorCredito,
+      valorDinheiro,     
+      valorFinal,
+      caixa
     };
 
     console.log(venda)
@@ -124,9 +130,27 @@ const ModalVenda = ({ onClose = () => {}, Children }) => {
             <input
               class="form-control" 
               type="text"
-              name="pagamento"
+              name="valorDebito"
               required/>
-        <label>Pagamento*</label>
+        <label>Valor Débito*</label>
+        </div>
+
+        <div class="form-floating mb-3">              
+            <input
+              class="form-control" 
+              type="text"
+              name="valorCredito"
+              required/>
+        <label>Valor Crédito*</label>
+        </div>
+
+        <div class="form-floating mb-3">              
+            <input
+              class="form-control" 
+              type="text"
+              name="valorDinheiro"
+              required/>
+        <label>Valor Dinheiro*</label>
         </div>
 
         <div class="form-floating mb-3">              
@@ -135,8 +159,17 @@ const ModalVenda = ({ onClose = () => {}, Children }) => {
               type="number"
               name="valorFinal"
               required/>
-            <label> valorFinal*</label>
-        </div>   
+            <label> Valor Final*</label>
+        </div>
+
+        <div class="form-floating mb-3">              
+            <input
+              class="form-control" 
+              type="number"
+              name="caixa"
+              required/>
+            <label> Caixa*</label>
+        </div>  
 
           <div id="button">
             <button type="submit">Enviar</button>
