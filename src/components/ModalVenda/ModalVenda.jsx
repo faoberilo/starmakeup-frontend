@@ -12,11 +12,18 @@ const ModalVenda = ({ onClose = () => {}, Children }) => {
   const [open, setOpen] = useState(false);
   const AbreModal = () => setOpen(true);
   const[produtos,setProdutos] = React.useState([]);
+  const[caixa,setCaixa] = React.useState([]);
+
 
   const getDados = async ()=>{
     await axios.get("produto").then((response) => {
       const produtos = response.data;
       setProdutos(produtos[0]);
+    })
+    await axios.get("caixa").then((response) => {
+      const caixa = response.data;
+      setCaixa(caixa);
+      console.log(caixa)
     })
   }      
 
@@ -162,14 +169,18 @@ const ModalVenda = ({ onClose = () => {}, Children }) => {
             <label> Valor Final*</label>
         </div>
 
-        <div class="form-floating mb-3">              
-            <input
-              class="form-control" 
-              type="number"
-              name="caixa"
-              required/>
-            <label> Caixa*</label>
-        </div>  
+        <div class="col-md">
+          <div class="form-floating">
+        <select class="form-select mb-3" name="caixa" required>
+          <option selected></option>
+            {caixa.map((caixa) => (
+            <option value={caixa.usuario}> {caixa.usuario}</option>
+            ))}              
+        </select>
+        <label for="caixa<">Caixa*</label>
+      </div>
+          </div>
+        
 
           <div id="button">
             <button type="submit">Enviar</button>
